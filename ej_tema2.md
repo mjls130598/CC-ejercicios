@@ -14,7 +14,11 @@ Una vez instalado, se comenzó a instalar las distintas versiones escribiendo en
 
 siendo `8.11.1` la versión que se quiere descargar.
 
-Como última versión se instaló la 15.0.0, la 4.9.1 y la 11.15.0.
+Para ver las versiones disponibles que se pueden instalar se ejecuta en la terminal el comando
+
+`nvm ls-remote`
+
+Las versiones instaladas fueron la 15.0.0, la 4.9.1 y la 11.15.0.
 
 Una demostración de que se ha realizado la instalación de las versiones anteriores se encuentra en la siguiente imagen:
 
