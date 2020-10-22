@@ -149,7 +149,7 @@ describe('Apuesta', function(){
 ```
 Si se ejecuta dicho test con *mocha* escribiendo en la terminal `mocha test_describe.js`, sucederá lo que se muestra a continuación:
 
-![Error test mocha](./imagen/test-mocha.png "Error test mocha")
+![Error test mocha](./imagenes/test-mocha.png "Error test mocha")
 
 Se arregla dicho error y quedaría como el siguiente código:
 
@@ -182,8 +182,8 @@ describe('Apuesta', function(){
 
 Cuya salida del test una vez ejecutado sería de la siguiente manera:
 
-![Éxito test mocha](./imagen/test-mocha-exito.png "Éxito test mocha")
+![Éxito test mocha](./imagenes/test-mocha-exito.png "Éxito test mocha")
 
 Para ejecutar este archivo, previamente se ha descargado mocha en nuestro proyecto escribiendo en la terminal `npm install mocha --save-dev`, que se incluirá como *devDependencies* en el archivo *package.json*. Además, para que se ejecutara el test con `npm test`, se cambió el valor del atributo *test* de *package.json* por *./node_modules/.bin/mocha test_describe.js*. El resultado de los cambios anteriores sería el siguiente:
 
-![Nuevo package.json](./imagen/nuevo-package.png "Nuevo package.json")
+![Nuevo package.json](./imagenes/nuevo-package.png "Nuevo package.json")
