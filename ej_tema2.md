@@ -26,25 +26,13 @@ Una demostración de que se ha realizado la instalación de las versiones anteri
 
 ## Ejercicio 2. Crear una descripción del módulo usando package.json. En caso de que se trate de otro lenguaje, usar el método correspondiente.
 
-`{
-  "author": "María Jesús López Salmerón <mjls130598@gmail.com> (https://github.com/mjls130598/sharingnotes),
-  "name": "SharingNotes",
-  "description":"Repositorio de apuntes",
-  "version":"0.0.1",
-  "repository":{
-    "url":"https://github.com/mjls130598/sharingnotes"
-  },
-  "main":"./main.js",
-  "scripts":{
-    "test":"make test"
-  },
-  "dependencies":{"mysql":"~2.0.0"},
-  "devDependencies":{},
-  "optionalDependencies":{},
-  "engines":{
-    "node":">=1.2.0"
-  }
- }`
+Para crear la descripción del módulo de la aplicación de ejemplo, se debe escribir en la terminal dentro de la carpeta del proyecto `npm init`. Una vez ejecutado el comando anterior, se deberán seguir los pasos que se indica por pantalla como los de la siguiente imagen:
+
+![Pasos del npm init](./imagenes/npm-init.png "Pasos del npm init")
+
+Cuando se hayan realizado todos los pasos, el package.json resultado es el que se muestra a continuación:
+
+![Archivo package.json](./imagenes/package.png "Archivo package.json")
 
 
- 
+
