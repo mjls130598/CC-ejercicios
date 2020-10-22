@@ -36,7 +36,7 @@ Cuando se hayan realizado todos los pasos, el package.json resultado es el que s
 
 ## Ejercicio 3. Descargar el repositorio de ejemplo anterior, instalar las herramientas necesarias (principalmente Scala y sbt) y ejecutar el ejemplo desde sbt. Alternativamente, buscar otros marcos para REST en Scala tales como Finatra o Scalatra y probar los ejemplos que se incluyan en el repositorio.
 
-Primero, se instaló Java 8, Scala y SBT. Los pasos que se siguió para instalar SBT se encuentra en [su página oficial] (https://www.scala-sbt.org/download.html?_ga=2.121828747.1077410046.1603361923-1348640796.1603358470).
+Primero, se instaló Java 8, Scala y SBT. Los pasos que se siguió para instalar SBT se encuentra en [su página oficial](https://www.scala-sbt.org/download.html?_ga=2.121828747.1077410046.1603361923-1348640796.1603358470).
 
 Una vez instaladas las herramientas necesarias, se clonó el repositorio del profesor con `git clone https://github.com/JJ/spray-test my-project`.
 
