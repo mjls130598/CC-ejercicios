@@ -2,7 +2,7 @@
 
 ## Ejercicio 1. Instalar alguno de los entornos virtuales de node.js (o de cualquier otro lenguaje con el que se esté familiarizado) y, con ellos, instalar la última versión existente, la versión minor más actual de la 4.x y lo mismo para la 0.11 o alguna impar (de desarrollo).
 
-Las distintas versiones que se han instalado para este ejercicio son del lenguaje node.js con el entorno virtual nvm.
+Las distintas versiones que se han instalado para este ejercicio son del lenguaje *node.js* con el entorno virtual *nvm*.
 
 Para instalar las versiones, primero he instalado el entorno virtual nvm escribiendo en la terminal el siguiente comando:
 
@@ -30,13 +30,13 @@ Para crear la descripción del módulo de la aplicación de ejemplo, se debe esc
 
 ![Pasos del npm init](./imagenes/npm-init.png "Pasos del npm init")
 
-Cuando se hayan realizado todos los pasos, el package.json resultado es el que se muestra a continuación:
+Cuando se hayan realizado todos los pasos, el *package.json* resultado es el que se muestra a continuación:
 
 ![Archivo package.json](./imagenes/package.png "Archivo package.json")
 
 ## Ejercicio 3. Descargar el repositorio de ejemplo anterior, instalar las herramientas necesarias (principalmente Scala y sbt) y ejecutar el ejemplo desde sbt. Alternativamente, buscar otros marcos para REST en Scala tales como Finatra o Scalatra y probar los ejemplos que se incluyan en el repositorio.
 
-Primero, se instaló Java 8, Scala y SBT. Los pasos que se siguió para instalar SBT se encuentra en [su página oficial](https://www.scala-sbt.org/download.html?_ga=2.121828747.1077410046.1603361923-1348640796.1603358470).
+Primero, se instaló *Java 8*, *Scala* y *SBT*. Los pasos que se siguió para instalar *SBT* se encuentra en [su página oficial](https://www.scala-sbt.org/download.html?_ga=2.121828747.1077410046.1603361923-1348640796.1603358470).
 
 Una vez instaladas las herramientas necesarias, se clonó el repositorio del profesor con `git clone https://github.com/JJ/spray-test my-project`.
 
@@ -54,11 +54,12 @@ En una terminal distinta, se ejecuta una serie de pruebas para ver el correcto f
 
 ![Pruebas](./imagenes/pruebas.png "Pruebas")
 
-Para terminar la ejecución del proyecto, se escribe en el shell de SBT `re-stop`.
+Para terminar la ejecución del proyecto, se escribe en el shell de *SBT* `re-stop`.
 
 ## Ejercicio 4. Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga. A continuación, ejecutarlos desde mocha (u otro módulo de test de alto nivel), usando descripciones del test y del grupo de test de forma correcta. Si hasta ahora no has subido el código que has venido realizando a GitHub, es el momento de hacerlo, porque lo vamos a necesitar un poco más adelante.
 
-Antes de crear los test, se ha creado el archivo Apuesta.js con cinco funciones:
+Antes de crear los test, se ha creado el archivo *Apuesta.js* con cinco funciones:
+
 1. Para que recoja los datos
 2. Para que escriba dichos datos en un string.
 3. Para que devuelva el valor de local.
@@ -94,10 +95,10 @@ function ver_visitante(){
 function ver_resultado(){
         return this.resultado;
 }
-
 ```
 
-A continuación, se creó el fichero que se encarga de ejecutar los test sobre Apuesta.js. En él se realiza varias comprobaciones:
+A continuación, se creó el fichero, cuyo nombre es *test.js*, que se encarga de ejecutar los test sobre *Apuesta.js*. En él se realiza varias comprobaciones:
+
 1. La apuesta creada y la apuesta escrita en una cadena sean iguales.
 2. El equipo local y el equipo visitante sean distintos.
 3. El resultado de la apuesta sea igual que el escrito en una cadena.
@@ -115,3 +116,74 @@ assert.notEqual(nueva_apuesta.ver_local(), nueva_apuesta.ver_visitante(), "Parti
 assert.equal(nueva_apuesta.ver_resultado(), "2-3", "Resultado correcto");
 console.log("Si has llegado aquí, han pasado todos los tests");
 ```
+
+Después, se creó otro archivo de test llamado *test_describe.js* con los que se ejecutará con el módulo de test *mocha*. Este test verifica que se haya cargado la biblioteca correctamente, que se haya creado una apuesta y que los datos del partido sean correctos.
+
+Primero cometeremos el error de crear una apuesta cuyo equipo visitante es igual que el equipo local, como se muestra en el siguiente código:
+
+```
+var assert = require("assert"),
+      apuesta = require("./Apuesta.js");
+
+describe('Apuesta', function(){          
+        describe('Carga', function(){           
+                it('Debe estar cargada', function(){
+                        assert(apuesta, "Cargado");
+                });      
+        });
+                
+        describe('Crea', function(){            
+                it('Debe crear apuestas correctamente', function(){
+                        var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
+                        assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
+                });     
+        });
+
+        describe('Verficar partido', function(){
+                it('Debe ser dos equipos distintos', function(){
+                        var nueva_apuesta = new apuesta.Apuesta('Polopos','Polopos', '2-3');
+                        assert.notEqual(nueva_apuesta.ver_local(),nueva_apuesta.ver_visitante(), "Partido correcto");
+                });
+        });
+});
+```
+Si se ejecuta dicho test con *mocha* escribiendo en la terminal `mocha test_describe.js`, sucederá lo que se muestra a continuación:
+
+![Error test mocha](./imagen/test-mocha.png "Error test mocha")
+
+Se arregla dicho error y quedaría como el siguiente código:
+
+```
+var assert = require("assert"),
+      apuesta = require("./Apuesta.js");
+
+describe('Apuesta', function(){
+        describe('Carga', function(){
+                it('Debe estar cargada', function(){
+                        assert(apuesta, "Cargado");
+                });
+        });
+
+        describe('Crea', function(){
+                it('Debe crear apuestas correctamente', function(){
+                        var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
+                        assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
+                });
+        });
+
+        describe('Verficar partido', function(){
+                it('Debe ser dos equipos distintos', function(){
+                        var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama', '2-3');
+                        assert.notEqual(nueva_apuesta.ver_local(),nueva_apuesta.ver_visitante(), "Partido correcto");
+                });
+        });
+});
+```
+
+Cuya salida del test una vez ejecutado sería de la siguiente manera:
+
+![Éxito test mocha](./imagen/test-mocha-exito.png "Éxito test mocha")
+
+Para ejecutar este archivo, previamente se ha descargado mocha en nuestro proyecto escribiendo en la terminal `npm install mocha --save-dev`, que se incluirá como *devDependencies* en el archivo *package.json*. Además, para que se ejecutara el test con `npm test`, se cambió el valor del atributo *test* de *package.json* por *./node_modules/.bin/mocha test_describe.js*. El resultado de los cambios anteriores sería el siguiente:
+
+![Nuevo package.json](./imagen/nuevo-package.png "Nuevo package.json")
