@@ -24,4 +24,27 @@ Una demostración de que se ha realizado la instalación de las versiones anteri
 
 ![Lista de versiones instaladas de node.js](./imagenes/lista_node.png "Lista de versiones instaladas de node.js")
 
+## Ejercicio 2. Crear una descripción del módulo usando package.json. En caso de que se trate de otro lenguaje, usar el método correspondiente.
 
+`{
+  "author": "María Jesús López Salmerón <mjls130598@gmail.com> (https://github.com/mjls130598/sharingnotes),
+  "name": "SharingNotes",
+  "description":"Repositorio de apuntes",
+  "version":"0.0.1",
+  "repository":{
+    "url":"https://github.com/mjls130598/sharingnotes"
+  },
+  "main":"./main.js",
+  "scripts":{
+    "test":"make test"
+  },
+  "dependencies":{"mysql":"~2.0.0"},
+  "devDependencies":{},
+  "optionalDependencies":{},
+  "engines":{
+    "node":">=1.2.0"
+  }
+ }`
+
+
+ 
