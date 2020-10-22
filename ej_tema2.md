@@ -56,4 +56,24 @@ En una terminal distinta, se ejecuta una serie de pruebas para ver el correcto f
 
 Para terminar la ejecución del proyecto, se escribe en el shell de SBT `re-stop`.
 
+## Ejercicio 4. Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga. A continuación, ejecutarlos desde mocha (u otro módulo de test de alto nivel), usando descripciones del test y del grupo de test de forma correcta. Si hasta ahora no has subido el código que has venido realizando a GitHub, es el momento de hacerlo, porque lo vamos a necesitar un poco más adelante.
 
+Antes de crear los test, se ha creado el archivo Apuesta.js con cinco funciones:
+	1. Para que recoja los datos
+	2. Para que escriba dichos datos en un string.
+	3. Para que devuelva el valor de local.
+	4. Para que devuelva el valor de visitante.
+	5. Para que devuelva el valor del resultado.
+
+Dicho archivo se observa en la siguiente imagen:
+
+![Archivo Apuesta.js](./imagenes/apuesta.png)
+
+A continuación, se creó el fichero que se encarga de ejecutar los test sobre Apuesta.js. En él se realiza varias comprobaciones:
+	1. La apuesta creada y la apuesta escrita en una cadena sean iguales.
+	2. El equipo local y el equipo visitante sean distintos.
+	3. El resultado de la apuesta sea igual que el escrito en una cadena.
+
+El archivo comentado anteriormente se muestra a continuación:
+
+![Archivo test.js](./imagenes/test_apuesta.png)
