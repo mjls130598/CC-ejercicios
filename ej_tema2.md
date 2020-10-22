@@ -187,3 +187,22 @@ Cuya salida del test una vez ejecutado sería de la siguiente manera:
 Para ejecutar este archivo, previamente se ha descargado mocha en nuestro proyecto escribiendo en la terminal `npm install mocha --save-dev`, que se incluirá como *devDependencies* en el archivo *package.json*. Además, para que se ejecutara el test con `npm test`, se cambió el valor del atributo *test* de *package.json* por *./node_modules/.bin/mocha test_describe.js*. El resultado de los cambios anteriores sería el siguiente:
 
 ![Nuevo package.json](./imagenes/nuevo-package.png "Nuevo package.json")
+
+## Ejercicio 5. 
+## 1. Darse de alta. Muchos están conectados con GitHub por lo que puedes usar directamente el usuario ahí. A través de un proceso de autorización, acceder al contenido e incluso informar del resultado de los tests.
+
+## 2. Activar el repositorio en el que se vaya a aplicar la integración continua. Travis permite hacerlo directamente desde tu configuración; en otros se dan de alta desde la web de GitHub.
+
+## 3. Crear un fichero de configuración para que se ejecute la integración y añadirlo al repositorio.
+
+El sistema que se va a instalar en nuestro repositorio en Github es *Travis*. Los pasos que se han realizado para la activación de travis en el repositorio de las apuestas de fútbol se han sacado de la [página EGC de la Universidad de Sevilla](https://1984.lsi.us.es/wiki-egc/index.php/Primeros_pasos_con_Travis_CI#:~:text=Para%20empezar%20con%20Travis%20CI,-Haz%20un%20fork&text=Usando%20tu%20cuenta%20de%20GitHub,confirmaci%C3%B3n%20de%20permisos%20de%20GitHub.&text=Comprueba%20en%20la%20p%C3%A1gina%20de,para%20que%20falle%20una%20prueba.)
+
+Primero, se loguea en *Travis CI* con la cuenta de GitHub y, cuando se haya logueado correctamente y se hayan sincronizado los repositorios de Github, se activa *Travis CI* en el repositorio donde se quiera construir dentro de la página de *Travis CI*.
+
+![Activado repositorio de GitHub en Travis](./imagenes/travis.png "Activado repositorio de GitHub en Travis")
+
+Por último, se crea el fichero *.travis.yml* en la raíz del directorio y se escribe el lenguaje en el que está el proyecto, en mi caso contiene lo siguiente:
+
+`languaje: node_js`
+
+ 
