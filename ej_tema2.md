@@ -65,9 +65,37 @@ Antes de crear los test, se ha creado el archivo Apuesta.js con cinco funciones:
 4. Para que devuelva el valor de visitante.
 5. Para que devuelva el valor del resultado.
 
-Dicho archivo se observa en la siguiente imagen:
+Dicho archivo se observa a continuación:
 
-![Archivo Apuesta.js](./imagenes/apuesta.png)
+```
+exports.Apuesta = function(local, visitante, resultado){
+        this.local = local;
+        this.visitante = visitante;
+        this.resultado = resultado;
+
+        this.as_string = as_string;
+        this.ver_local = ver_local;
+        this.ver_visitante = ver_visitante;
+        this.ver_resultado = ver_resultado;
+}
+
+function as_string(){
+        return this.local + ": " + this.visitante + " - " + this.resultado;
+}
+
+function ver_local(){
+        return this.local;
+}
+
+function ver_visitante(){
+        return this.visitante;
+}
+
+function ver_resultado(){
+        return this.resultado;
+}
+
+```
 
 A continuación, se creó el fichero que se encarga de ejecutar los test sobre Apuesta.js. En él se realiza varias comprobaciones:
 1. La apuesta creada y la apuesta escrita en una cadena sean iguales.
@@ -76,4 +104,14 @@ A continuación, se creó el fichero que se encarga de ejecutar los test sobre A
 
 El archivo comentado anteriormente se muestra a continuación:
 
-![Archivo test.js](./imagenes/test_apuesta.png)
+```
+var apuesta = require("./Apuesta.js"),
+assert= require("assert");
+
+var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
+assert(nueva_apuesta, "Creada apuesta");
+assert.equal(nueva_apuesta.as_string(), "Polopos: Alhama - 2-3","Creado");
+assert.notEqual(nueva_apuesta.ver_local(), nueva_apuesta.ver_visitante(), "Partido correcto");
+assert.equal(nueva_apuesta.ver_resultado(), "2-3", "Resultado correcto");
+console.log("Si has llegado aquí, han pasado todos los tests");
+```
