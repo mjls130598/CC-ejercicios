@@ -211,6 +211,6 @@ node_js:
 before_script: chmod 0777 ./node_modules/.bin/mocha
 ```
 
-La última línea fue insertada dentro del archivo porque cuando se ejecutaba *Travis CI* la parte de los test tenía problemas con los permisos de acceso a los archivos de *mocha*. Esta solución fue encontrada en la página de [*Sharma*](http://sharmac1odewiki.blogspot.com/2012/08/nodejs-permission-denied-when-running.html)
+La última línea fue insertada dentro del archivo porque cuando ejecutaba *Travis CI* la parte de los test tenía problemas con los permisos de acceso a los archivos de *mocha*. Esta solución fue encontrada en la página de [*Sharma*](http://sharmac1odewiki.blogspot.com/2012/08/nodejs-permission-denied-when-running.html).
 
  
