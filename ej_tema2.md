@@ -203,6 +203,14 @@ Primero, se loguea en *Travis CI* con la cuenta de GitHub y, cuando se haya logu
 
 Por último, se crea el fichero *.travis.yml* en la raíz del directorio y se escribe el lenguaje en el que está el proyecto, en mi caso contiene lo siguiente:
 
-`languaje: node_js`
+```
+language: node_js
+node_js:
+	- "14.14.0"
+
+before_script: chmod 0777 ./node_modules/.bin/mocha
+```
+
+La última línea fue insertada dentro del archivo porque cuando se ejecutaba *Travis CI* la parte de los test tenía problemas con los permisos de acceso a los archivos de *mocha*. Esta solución fue encontrada en la página de [*Sharma*](http://sharmac1odewiki.blogspot.com/2012/08/nodejs-permission-denied-when-running.html)
 
  
