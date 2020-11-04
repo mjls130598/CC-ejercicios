@@ -108,4 +108,12 @@ A continuación, se crea la imagen persistente con `sudo docker commit f1128df6a
 
 ## Ejercicio 4. Examinar la estructura de capas que se forma al crear imágenes nuevas a partir de contenedores que se hayan estado ejecutando.
 
+Se va a examinar la estructura de capas de la imagen persistente creada en el ejercicio anterior (*nuevo-alpine*). Para ello se obtiene el SHA resultado del `sudo docker commit` realizado previemente y se escribe en la terminal `sudo jq '.' /var/lib/docker/image/overlay2/imagedb/content/sha256/0a1ace3a739409c06ed4187bdd5f8483dd895cc17621e2aeafe3773663bb159a`.
+
+Del fichero que nos muestra como resultado de la anterior ejecución, nos muestra las capas que tiene en el elemento *diff_ids*. Las capas de la imagen que se está utilizando como ejemplo son:
+
+![Capas](./imagenes/capas.png "Capas")
+
+## Ejercicio 5. Crear un volumen y usarlo, por ejemplo, para escribir la salida de un programa determinado.
+
 
