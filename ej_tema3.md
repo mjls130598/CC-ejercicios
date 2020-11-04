@@ -86,7 +86,7 @@ El resultado obtenido de ejecutar el *Dockerfile* anterior se observa en las sig
 ![Imagen Alpine 1](./imagenes/dockerAlpine1.png "Imagen Alpine")
 ![Imagen Alpine 2](./imagenes/dockerAlpine2.png "Imagen Alpine")
 
-La información necesaria para crear los *Dockerfiles* se ha obtenido de la página [*Colaboratorio*](https://colaboratorio.net/davidochobits/sysadmin/2018/crear-imagenes-medida-docker-dockerfile/), [*Pledin 3.0*](https://www.josedomingo.org/pledin/2016/02/ejemplos-de-ficheros-dockerfile-creando-imagenes-docker/), [*Takacsmark*](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/) y la [oficial de *Docker*](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/).
+La información necesaria para crear los *Dockerfiles* se ha obtenido de la página [*Colaboratorio*](https://colaboratorio.net/davidochobits/sysadmin/2018/crear-imagenes-medida-docker-dockerfile/), [*Pledin 3.0*](https://www.josedomingo.org/pledin/2016/02/ejemplos-de-ficheros-dockerfile-creando-imagenes-docker/), [*Takacsmark*](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/) y la [oficial de *Docker*](https://docs.docker.com/get-started/part2/#sample-dockerfile).
 
 Por último, para ver el espacio que ocupa cada una de las imágenes anteriores se ejecuta la orden `sudo docker images` cuyo resultado se muestra en la siguiente foto.
 
@@ -106,4 +106,6 @@ A continuación, se crea la imagen persistente con `sudo docker commit f1128df6a
 
 ![Imagen persistente](./imagenes/imagenPersistente.png "Imagen persistente")
 
-## Ejercicio 4.Examinar la estructura de capas que se forma al crear imágenes nuevas a partir de contenedores que se hayan estado ejecutando.
+## Ejercicio 4. Examinar la estructura de capas que se forma al crear imágenes nuevas a partir de contenedores que se hayan estado ejecutando.
+
+
