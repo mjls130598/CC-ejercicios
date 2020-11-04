@@ -96,4 +96,14 @@ Como se puede observar, *Alpine* es el que ocupa menos espacio tanto la que cont
 
 ## Ejercicio 3. Crear a partir del contenedor anterior una imagen persistente con commit.
 
+Para realizar el commit sobre un contenedor, primero debe haber un contenedor. Para que se cree un contenedor se debe ejecutar sobre una de las imágenes un comando parecido a `sudo docker run mjls130598/alpine` (siendo *mjls130598/alpine* una de las imágenes creadas, en concreto aquella creada para el ejercicio anterior).
 
+Con la orden `sudo docker ps -l` vemos qué contenedores tenemos almacenados. Si se ha ejecutado previamente el comando del párrafo anterior,se muestra como resultado la siguiente foto.
+
+![Contenedores](./imagenes/contenedores.png "Contenedores")
+
+A continuación, se crea la imagen persistente con `sudo docker commit f1128df6a613 nuevo-alpine` y, para comprobar de que se ha realizado correctamente, se escribe en la terminal `sudo docker images`. El resultado del último comando es el siguiente:
+
+![Imagen persistente](./imagenes/imagenPersistente.png "Imagen persistente")
+
+## Ejercicio 4.Examinar la estructura de capas que se forma al crear imágenes nuevas a partir de contenedores que se hayan estado ejecutando.
