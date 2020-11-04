@@ -102,7 +102,7 @@ Con la orden `sudo docker ps -l` vemos qué contenedores tenemos almacenados. Si
 
 ![Contenedores](./imagenes/contenedores.png "Contenedores")
 
-A continuación, se crea la imagen persistente con `sudo docker commit f1128df6a613 nuevo-alpine` y, para comprobar de que se ha realizado correctamente, se escribe en la terminal `sudo docker images`. El resultado del último comando es el siguiente:
+A continuación, se crea la imagen persistente con `sudo docker commit f1128df6a613 nuevo-alpine` y, para comprobar que se ha realizado correctamente, se escribe en la terminal `sudo docker images`. El resultado del último comando es el siguiente:
 
 ![Imagen persistente](./imagenes/imagenPersistente.png "Imagen persistente")
 
