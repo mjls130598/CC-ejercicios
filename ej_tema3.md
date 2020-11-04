@@ -86,10 +86,14 @@ El resultado obtenido de ejecutar el *Dockerfile* anterior se observa en las sig
 ![Imagen Alpine 1](./imagenes/dockerAlpine1.png "Imagen Alpine")
 ![Imagen Alpine 2](./imagenes/dockerAlpine2.png "Imagen Alpine")
 
-La información necesaria para crear los *Dockerfiles* se ha obtenido de la página [*Colaboratorio*](https://colaboratorio.net/davidochobits/sysadmin/2018/crear-imagenes-medida-docker-dockerfile/), [*Pledin 3.0*](https://www.josedomingo.org/pledin/2016/02/ejemplos-de-ficheros-dockerfile-creando-imagenes-docker/), [*Takacsmark*](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/) y la [oficial de *Docker*](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/)
+La información necesaria para crear los *Dockerfiles* se ha obtenido de la página [*Colaboratorio*](https://colaboratorio.net/davidochobits/sysadmin/2018/crear-imagenes-medida-docker-dockerfile/), [*Pledin 3.0*](https://www.josedomingo.org/pledin/2016/02/ejemplos-de-ficheros-dockerfile-creando-imagenes-docker/), [*Takacsmark*](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/) y la [oficial de *Docker*](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/).
 
-Por último, se va a ver el espacio que ocupa cada imagen. Para ello se ejecutará la orden `sudo docker images` cuyo resultado se muestra en la siguiente foto. Como se puede observar, *Alpine* es el que ocupa menos espacio tanto la que contiene solamente la imagen como aquella que tiene todo instalado para ejecutar el fichero importado, mientras que la imagen con solamente *CentOS* es la que ocupa más aunque la que utiliza *Fedora* con todo lo necesario para ejecutar el archivo local es la que más ocupa.
+Por último, para ver el espacio que ocupa cada una de las imágenes anteriores se ejecuta la orden `sudo docker images` cuyo resultado se muestra en la siguiente foto.
 
 ![Docker images](./imagenes/dockerImages.png "Docker images")
 
+Como se puede observar, *Alpine* es el que ocupa menos espacio tanto la que contiene solamente la imagen como aquella que tiene todo instalado para ejecutar el fichero importado, mientras que la imagen con solamente *CentOS* es la que ocupa más aunque la que utiliza *Fedora* con todo lo necesario para ejecutar el archivo local es la que más ocupa.
+
 ## Ejercicio 3. Crear a partir del contenedor anterior una imagen persistente con commit.
+
+
