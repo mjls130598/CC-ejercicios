@@ -118,7 +118,7 @@ Del fichero que nos muestra como resultado de la anterior ejecución, nos muestr
 
 Para crear un volumen sólo hace falta ejecutar en la terminal `sudo docker volume create volumen`, siendo *volumen* el nombre del nuevo volumen. Para ver que se ha creado correctamente debe aparecer en la lista que se muestra como resultado de `sudo docker volume ls`.
 
-A continuación, para utilizar el volumen creado anteriormente se ejecuta en la terminal `sudo docker run -it --name contenedor1 -v /volumen fedora bash` y, dentro del *bash* del contenedor se escribe `ls >> /volumen/fochero.txt` para que escriba la salida del comando `ls` dentro de un fichero que se almacena en el volumen creado.
+A continuación, para utilizar el volumen creado anteriormente se ejecuta en la terminal `sudo docker run -it --name contenedor1 -v /volumen fedora bash` y, dentro del *bash* del contenedor se escribe `ls >> /volumen/fichero.txt` para que escriba la salida del comando `ls` dentro de un fichero que se almacena en el volumen creado.
 
 Para ver que se ha utilizado el volumen dentro del contenedor *contenedor1*, con la orden `sudo docker inspect contenedor1` se ve en el apartado *Mount* lo siguiente:
 
