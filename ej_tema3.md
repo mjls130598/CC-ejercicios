@@ -116,4 +116,16 @@ Del fichero que nos muestra como resultado de la anterior ejecución, nos muestr
 
 ## Ejercicio 5. Crear un volumen y usarlo, por ejemplo, para escribir la salida de un programa determinado.
 
+Para crear un volumen sólo hace falta ejecutar en la terminal `sudo docker volume create volumen`, siendo *volumen* el nombre del nuevo volumen. Para ver que se ha creado correctamente debe aparecer en la lista que se muestra como resultado de `sudo docker volume ls`.
 
+A continuación, para utilizar el volumen creado anteriormente se ejecuta en la terminal `sudo docker run -it --name contenedor1 -v /volumen fedora bash` y, dentro del *bash* del contenedor se escribe `ls >> /volumen/fochero.txt` para que escriba la salida del comando `ls` dentro de un fichero que se almacena en el volumen creado.
+
+Para ver que se ha utilizado el volumen dentro del contenedor *contenedor1*, con la orden `sudo docker inspect contenedor1` se ve en el apartado *Mount* lo siguiente:
+
+![Volumen](./imagenes/volumen.png "Volumen")
+
+Por último, para ver que se ha guardado el fichero que se ha creado dentro del bash de la imagen se escribe en la terminal `sudo ls /var/lib/docker/volumes/a00ac4ab0f9c1c37662c429221a817bcdb8ee5ba75aeb44dc443c75626d0e6db/_data` (siendo *a00ac4ab0f9c1c37662c429221a817bcdb8ee5ba75aeb44dc443c75626d0e6db* el identificador de *contenedor1*) que debería salir como resultado *fichero.txt* y cuyo contenido debe ser el resultado de `ls` dentro de la imagen.
+
+![Resultado volumen](./imagenes/resultadoVolumen.png "Resultado volumen")
+
+## Ejercicio 6. Usar un miniframework REST para crear un servicio web y introducirlo en un contenedor, y componerlo con un cliente REST que sea el que finalmente se ejecuta y sirve como “frontend”.
