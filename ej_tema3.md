@@ -12,17 +12,17 @@ Para descargar *Docker* abrimos una terminal y escribios los siguientes pasos:
 
 La siguiente imagen se muestra la primera descarga de la imagen *hello-world*.
 
-![Imagen *Hello World*](./imagenes/dockerHello.png "Imagen Hello World")
+![Imagen *Hello World*](./imagenes/tema3/dockerHello.png "Imagen Hello World")
 
 Los pasos seguidos se han obtenido de la [página oficial de *Docker*](https://docs.docker.com/engine/install/ubuntu/).
 
 A continuación, se va a descargar el contenedor *jjmerelo/daleksay*, para eso se ejecuta el comando `sudo docker run --rm jjmerelo/docker-daleksay -f smiling-octopus Uso argumentos, ea` que realiza lo que se muestra en la siguiente imagen y que borra el contenedor que se haya creado para instalar la imagen una vez creada.
 
-![Imagen Pulpo](./imagenes/dockerPulpo.png "Imagen Pulpo")
+![Imagen Pulpo](./imagenes/tema3/dockerPulpo.png "Imagen Pulpo")
 
 La primera vez que se ejecuta la imagen se descarga aquello necesario para instalar la imagen. En las siguientes veces que se ejecuta la imagen, ya no se vuelve a descargar los procesos necesarios para su ejecución como se muestra a continuación:
 
-![Imagen Pulpo 2](./imagenes/dockerPulpo2.png "Imagen Pulpo 2")
+![Imagen Pulpo 2](./imagenes/tema3/dockerPulpo2.png "Imagen Pulpo 2")
 
 ## Ejercicio 2. Tomar algún programa simple, “Hola mundo” impreso desde el intérprete de línea de órdenes, y comparar el tamaño de las imágenes de diferentes sistemas operativos base, Fedora, CentOS y Alpine, por ejemplo.
 
@@ -44,7 +44,7 @@ RUN python3 Hola.py
 
 La imagen que se muestra a continuación es el resultado de ejecutar el anterior *Dockerfile*:
 
-![Imagen Fedora](./imagenes/dockerFedora.png "Imagen Fedora")
+![Imagen Fedora](./imagenes/tema3/dockerFedora.png "Imagen Fedora")
 
 Ahora se realizará lo mismo que en Fedora, pero esta vez con el sistema operativo *CentOS*:
 
@@ -61,9 +61,9 @@ RUN python3 Hola.py
 ```
 El resultado de construir la imagen gracias a ese *Dockerfile* se muestran en las siguientes imágenes:
 
-![Imagen CentOS 1](./imagenes/dockerCentos1.png "Imagen CentOS")
-![Imagen CentOS 2](./imagenes/dockerCentos2.png "Imagen CentOS")
-![Imagen CentOS 3](./imagenes/dockerCentos3.png "Imagen CentOS")
+![Imagen CentOS 1](./imagenes/tema3/dockerCentos1.png "Imagen CentOS")
+![Imagen CentOS 2](./imagenes/tema3/dockerCentos2.png "Imagen CentOS")
+![Imagen CentOS 3](./imagenes/tema3/dockerCentos3.png "Imagen CentOS")
 
 Por último, se realizará una imagen con el sistema operativo *Alpine* con el siguiente *Dockerfile*:
 
@@ -83,14 +83,14 @@ RUN python3 Hola.py
 
 El resultado obtenido de ejecutar el *Dockerfile* anterior se observa en las siguientes imágenes:
 
-![Imagen Alpine 1](./imagenes/dockerAlpine1.png "Imagen Alpine")
-![Imagen Alpine 2](./imagenes/dockerAlpine2.png "Imagen Alpine")
+![Imagen Alpine 1](./imagenes/tema3/dockerAlpine1.png "Imagen Alpine")
+![Imagen Alpine 2](./imagenes/tema3/dockerAlpine2.png "Imagen Alpine")
 
 La información necesaria para crear los *Dockerfiles* se ha obtenido de la página [*Colaboratorio*](https://colaboratorio.net/davidochobits/sysadmin/2018/crear-imagenes-medida-docker-dockerfile/), [*Pledin 3.0*](https://www.josedomingo.org/pledin/2016/02/ejemplos-de-ficheros-dockerfile-creando-imagenes-docker/), [*Takacsmark*](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/) y la [oficial de *Docker*](https://docs.docker.com/get-started/part2/#sample-dockerfile).
 
 Por último, para ver el espacio que ocupa cada una de las imágenes anteriores se ejecuta la orden `sudo docker images` cuyo resultado se muestra en la siguiente foto.
 
-![Docker images](./imagenes/dockerImages.png "Docker images")
+![Docker images](./imagenes/tema3/dockerImages.png "Docker images")
 
 Como se puede observar, *Alpine* es el que ocupa menos espacio tanto la que contiene solamente la imagen como aquella que tiene todo instalado para ejecutar el fichero importado, mientras que la imagen con solamente *CentOS* es la que ocupa más aunque la que utiliza *Fedora* con todo lo necesario para ejecutar el archivo local es la que más ocupa.
 
@@ -100,11 +100,11 @@ Para realizar el commit sobre un contenedor, primero debe haber un contenedor. P
 
 Con la orden `sudo docker ps -l` vemos qué contenedores tenemos almacenados. Si se ha ejecutado previamente el comando del párrafo anterior,se muestra como resultado la siguiente foto.
 
-![Contenedores](./imagenes/contenedores.png "Contenedores")
+![Contenedores](./imagenes/tema3/contenedores.png "Contenedores")
 
 A continuación, se crea la imagen persistente con `sudo docker commit f1128df6a613 nuevo-alpine` y, para comprobar que se ha realizado correctamente, se escribe en la terminal `sudo docker images`. El resultado del último comando es el siguiente:
 
-![Imagen persistente](./imagenes/imagenPersistente.png "Imagen persistente")
+![Imagen persistente](./imagenes/tema3/imagenPersistente.png "Imagen persistente")
 
 ## Ejercicio 4. Examinar la estructura de capas que se forma al crear imágenes nuevas a partir de contenedores que se hayan estado ejecutando.
 
@@ -112,7 +112,7 @@ Se va a examinar la estructura de capas de la imagen persistente creada en el ej
 
 Del fichero que nos muestra como resultado de la anterior ejecución, nos muestra las capas que tiene en el elemento *diff_ids*. Las capas de la imagen que se está utilizando como ejemplo son:
 
-![Capas](./imagenes/capas.png "Capas")
+![Capas](./imagenes/tema3/capas.png "Capas")
 
 ## Ejercicio 5. Crear un volumen y usarlo, por ejemplo, para escribir la salida de un programa determinado.
 
@@ -122,10 +122,10 @@ A continuación, para utilizar el volumen creado anteriormente se ejecuta en la 
 
 Para ver que se ha utilizado el volumen dentro del contenedor *contenedor1*, con la orden `sudo docker inspect contenedor1` se ve en el apartado *Mount* lo siguiente:
 
-![Volumen](./imagenes/volumen.png "Volumen")
+![Volumen](./imagenes/tema3/volumen.png "Volumen")
 
 Por último, para ver que se ha guardado el fichero que se ha creado dentro del bash de la imagen se escribe en la terminal `sudo ls /var/lib/docker/volumes/a00ac4ab0f9c1c37662c429221a817bcdb8ee5ba75aeb44dc443c75626d0e6db/_data` (siendo *a00ac4ab0f9c1c37662c429221a817bcdb8ee5ba75aeb44dc443c75626d0e6db* el identificador de *contenedor1*) que debería salir como resultado *fichero.txt* y cuyo contenido debe ser el resultado de `ls` dentro de la imagen.
 
-![Resultado volumen](./imagenes/resultadoVolumen.png "Resultado volumen")
+![Resultado volumen](./imagenes/tema3/resultadoVolumen.png "Resultado volumen")
 
 ## Ejercicio 6. Usar un miniframework REST para crear un servicio web y introducirlo en un contenedor, y componerlo con un cliente REST que sea el que finalmente se ejecuta y sirve como “frontend”.

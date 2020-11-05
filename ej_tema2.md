@@ -8,7 +8,7 @@ Para instalar las versiones, primero he instalado el entorno virtual nvm escribi
 
 `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash`
 
-Una vez instalado, se comenzó a instalar las distintas versiones escribiendo en la terminal 
+Una vez instalado, se comenzó a instalar las distintas versiones escribiendo en la terminal
 
 `nvm install v8.11.1`
 
@@ -22,17 +22,17 @@ Las versiones instaladas fueron la 15.0.0, la 4.9.1 y la 11.15.0.
 
 Una demostración de que se ha realizado la instalación de las versiones anteriores se encuentra en la siguiente imagen:
 
-![Lista de versiones instaladas de node.js](./imagenes/lista_node.png "Lista de versiones instaladas de node.js")
+![Lista de versiones instaladas de node.js](./imagenes/tema2/lista_node.png "Lista de versiones instaladas de node.js")
 
 ## Ejercicio 2. Crear una descripción del módulo usando package.json. En caso de que se trate de otro lenguaje, usar el método correspondiente.
 
 Para crear la descripción del módulo de la aplicación de ejemplo, se debe escribir en la terminal dentro de la carpeta del proyecto `npm init`. Una vez ejecutado el comando anterior, se deberán seguir los pasos que se indica por pantalla como los de la siguiente imagen:
 
-![Pasos del npm init](./imagenes/npm-init.png "Pasos del npm init")
+![Pasos del npm init](./imagenes/tema2/npm-init.png "Pasos del npm init")
 
 Cuando se hayan realizado todos los pasos, el *package.json* resultado es el que se muestra a continuación:
 
-![Archivo package.json](./imagenes/package.png "Archivo package.json")
+![Archivo package.json](./imagenes/tema2/package.png "Archivo package.json")
 
 ## Ejercicio 3. Descargar el repositorio de ejemplo anterior, instalar las herramientas necesarias (principalmente Scala y sbt) y ejecutar el ejemplo desde sbt. Alternativamente, buscar otros marcos para REST en Scala tales como Finatra o Scalatra y probar los ejemplos que se incluyan en el repositorio.
 
@@ -44,15 +44,15 @@ Cuando se terminó de clonar el repositorio "spray-test", se ejecutó en el term
 
 A continuación, se ejecutaron los test sobre este proyecto con la orden `test`. El resultado de que el test se pasó correctametne se muestra en la siguiente imagen:
 
-![Test](./imagenes/test.png "Test")
+![Test](./imagenes/tema2/test.png "Test")
 
 Después, se escribió en el shell `re-start` para que comenzara la aplicación. Cuando se esté ejecutando el comando anterior, se dirigió a http://localhost:8080 como se muestra a continuación:
 
-![Localhost](./imagenes/localhost.png "Localhost")
+![Localhost](./imagenes/tema2/localhost.png "Localhost")
 
 En una terminal distinta, se ejecuta una serie de pruebas para ver el correcto funcionamiento del proyecto. Las pruebas que se realizaron se pueden observar en la siguiente imagen:
 
-![Pruebas](./imagenes/pruebas.png "Pruebas")
+![Pruebas](./imagenes/tema2/pruebas.png "Pruebas")
 
 Para terminar la ejecución del proyecto, se escribe en el shell de *SBT* `re-stop`.
 
@@ -131,7 +131,7 @@ describe('Apuesta', function(){
                         assert(apuesta, "Cargado");
                 });      
         });
-                
+
         describe('Crea', function(){            
                 it('Debe crear apuestas correctamente', function(){
                         var nueva_apuesta = new apuesta.Apuesta('Polopos','Alhama','2-3');
@@ -149,7 +149,7 @@ describe('Apuesta', function(){
 ```
 Si se ejecuta dicho test con *mocha* escribiendo en la terminal `mocha test_describe.js`, sucederá lo que se muestra a continuación:
 
-![Error test mocha](./imagenes/test-mocha.png "Error test mocha")
+![Error test mocha](./imagenes/tema2/test-mocha.png "Error test mocha")
 
 Se arregla dicho error y quedaría como el siguiente código:
 
@@ -182,13 +182,13 @@ describe('Apuesta', function(){
 
 Cuya salida del test una vez ejecutado sería de la siguiente manera:
 
-![Éxito test mocha](./imagenes/test-mocha-exito.png "Éxito test mocha")
+![Éxito test mocha](./imagenes/tema2/test-mocha-exito.png "Éxito test mocha")
 
 Para ejecutar este archivo, previamente se ha descargado mocha en nuestro proyecto escribiendo en la terminal `npm install mocha --save-dev`, que se incluirá como *devDependencies* en el archivo *package.json*. Además, para que se ejecutara el test con `npm test`, se cambió el valor del atributo *test* de *package.json* por *./node_modules/.bin/mocha test_describe.js*. El resultado de los cambios anteriores sería el siguiente:
 
-![Nuevo package.json](./imagenes/nuevo-package.png "Nuevo package.json")
+![Nuevo package.json](./imagenes/tema2/nuevo-package.png "Nuevo package.json")
 
-## Ejercicio 5. 
+## Ejercicio 5.
 ## 1. Darse de alta. Muchos están conectados con GitHub por lo que puedes usar directamente el usuario ahí. A través de un proceso de autorización, acceder al contenido e incluso informar del resultado de los tests.
 
 ## 2. Activar el repositorio en el que se vaya a aplicar la integración continua. Travis permite hacerlo directamente desde tu configuración; en otros se dan de alta desde la web de GitHub.
@@ -199,7 +199,7 @@ El sistema que se va a instalar en nuestro repositorio en Github es *Travis*. Lo
 
 Primero, se loguea en *Travis CI* con la cuenta de GitHub y, cuando se haya logueado correctamente y se hayan sincronizado los repositorios de Github, se activa *Travis CI* en el repositorio donde se quiera construir dentro de la página de *Travis CI*.
 
-![Activado repositorio de GitHub en Travis](./imagenes/travis.png "Activado repositorio de GitHub en Travis")
+![Activado repositorio de GitHub en Travis](./imagenes/tema2/travis.png "Activado repositorio de GitHub en Travis")
 
 Por último, se crea el fichero *.travis.yml* en la raíz del directorio y se escribe el lenguaje en el que está el proyecto, en mi caso contiene lo siguiente:
 
@@ -212,5 +212,3 @@ before_script: chmod 0777 ./node_modules/.bin/mocha
 ```
 
 La última línea fue insertada dentro del archivo porque cuando ejecutaba *Travis CI* la parte de los test tenía problemas con los permisos de acceso a los archivos de *mocha*. Esta solución fue encontrada en la página de [*Sharma*](http://sharmac1odewiki.blogspot.com/2012/08/nodejs-permission-denied-when-running.html).
-
- 
