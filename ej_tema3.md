@@ -130,7 +130,7 @@ Por último, para ver que se ha guardado el fichero que se ha creado dentro del 
 
 ## Ejercicio 6. Reproducir los contenedores creados anteriormente usando un Dockerfile.
 
-Los Dockerfiles creados para los contenedores referentes al ejercicio 1 son los siguientes:
+Los Dockerfiles creados para los contenedores referentes al ejercicio 2 son los siguientes:
 
 * Fedora:
 ```
@@ -171,6 +171,19 @@ RUN apk add python3
 COPY Hola.py .
 
 CMD ["python3", "Hola.py"]
+```
+
+El Dockerfile correspondiente al ejercicio 5 es:
+```
+FROM fedora:latest
+
+RUN mkdir /volumen
+
+VOLUME /volumen
+
+COPY fichero.txt /volumen
+
+CMD ls >> /volumen/fichero.txt && cat /volumen/fichero.txt
 ```
 
 ## Ejercicio 7. Usar un miniframework REST para crear un servicio web y introducirlo en un contenedor, y componerlo con un cliente REST que sea el que finalmente se ejecuta y sirve como “frontend”.
