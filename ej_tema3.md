@@ -26,7 +26,7 @@ La primera vez que se ejecuta la imagen se descarga aquello necesario para insta
 
 ## Ejercicio 2. Tomar algún programa simple, “Hola mundo” impreso desde el intérprete de línea de órdenes, y comparar el tamaño de las imágenes de diferentes sistemas operativos base, Fedora, CentOS y Alpine, por ejemplo.
 
-Para descargar cada una de las diferentes imágenes se han hecho distintos *Dockerfiles* donde se detalla la imagen que se va a usar, el directorio de trabajo, el fichero que va a copiar del dispositivo local, lo que tiene que instalar dentro de la imagen para ejecutar el fichero anterior y la ejecución del fichero importado. Para ejecutar los *Dockerfiles* creados se escribirá en la terminal donde se encuentre el archivo *Dockerfile* correspondiente `sudo docker build -t mjls130598/fedora .`, siendo *fedora* la imagen que se va a instalar.
+Para descargar cada una de las diferentes imágenes se han hecho distintos *Dockerfiles* donde se detalla la imagen que se va a usar, el directorio de trabajo, el fichero que va a copiar del dispositivo local, lo que tiene que instalar dentro de la imagen para ejecutar el fichero anterior y la ejecución del fichero importado. Para ejecutar los *Dockerfiles* creados se escribirá en la terminal donde se encuentre el archivo *Dockerfile* correspondiente `sudo docker build -t mjls130598/fedora .` para crear la imagen y, a continuación, `sudo docker run --rm mjls130598/fedora`, siendo *fedora* la imagen que se va a instalar.
 
 Primero se realizará sobre la imagen *Fedora*. El *Dockerfile* de esta imagen se observa a cotinuación:
 
@@ -39,7 +39,7 @@ RUN yum install python3
 
 COPY Hola.py .
 
-RUN python3 Hola.py
+CMD ["python3", "Hola.py"]
 ```
 
 La imagen que se muestra a continuación es el resultado de ejecutar el anterior *Dockerfile*:
@@ -57,7 +57,7 @@ RUN yum install -y python3
 
 COPY Hola.py .
 
-RUN python3 Hola.py
+CMD ["python3", "Hola.py"]
 ```
 El resultado de construir la imagen gracias a ese *Dockerfile* se muestran en las siguientes imágenes:
 
@@ -78,7 +78,7 @@ RUN apk add python3
 
 COPY Hola.py .
 
-RUN python3 Hola.py
+CMD ["python3", "Hola.py"]
 ```
 
 El resultado obtenido de ejecutar el *Dockerfile* anterior se observa en las siguientes imágenes:
@@ -128,4 +128,49 @@ Por último, para ver que se ha guardado el fichero que se ha creado dentro del 
 
 ![Resultado volumen](./imagenes/tema3/resultadoVolumen.png "Resultado volumen")
 
-## Ejercicio 6. Usar un miniframework REST para crear un servicio web y introducirlo en un contenedor, y componerlo con un cliente REST que sea el que finalmente se ejecuta y sirve como “frontend”.
+## Ejercicio 6. Reproducir los contenedores creados anteriormente usando un Dockerfile.
+
+Los Dockerfiles creados para los contenedores referentes al ejercicio 1 son los siguientes:
+
+* Fedora:
+```
+FROM fedora:latest
+
+WORKDIR ~/fedora
+
+RUN yum install python3
+
+COPY Hola.py .
+
+CMD ["python3", "Hola.py"]
+```
+
+* CentOS:
+```
+FROM centos:latest
+
+WORKDIR ~/centos
+
+RUN yum install -y python3
+
+COPY Hola.py .
+
+CMD ["python3", "Hola.py"]
+```
+
+* Alpine:
+```
+FROM alpine:latest
+
+WORKDIR ~/alpine
+
+RUN apk update
+
+RUN apk add python3
+
+COPY Hola.py .
+
+CMD ["python3", "Hola.py"]
+```
+
+## Ejercicio 7. Usar un miniframework REST para crear un servicio web y introducirlo en un contenedor, y componerlo con un cliente REST que sea el que finalmente se ejecuta y sirve como “frontend”.
