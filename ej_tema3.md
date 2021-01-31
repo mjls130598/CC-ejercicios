@@ -186,4 +186,4 @@ COPY fichero.txt /volumen
 CMD ls >> /volumen/fichero.txt && cat /volumen/fichero.txt
 ```
 
-## Ejercicio 7. Usar un miniframework REST para crear un servicio web y introducirlo en un contenedor, y componerlo con un cliente REST que sea el que finalmente se ejecuta y sirve como “frontend”.
+## Ejercicio 7. Usar un miniframework REST para crear un servicio web e introducirlo en un contenedor, y componerlo con un cliente REST que sea el que finalmente se ejecuta y sirve como “frontend”.
