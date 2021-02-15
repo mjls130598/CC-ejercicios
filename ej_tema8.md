@@ -78,3 +78,7 @@ services:
       ports:
       - "8000:8000"
 ```
+
+El resultado de esta composición se puede ver en la siguiente captura en la parte del cliente:
+
+![Resultado](./imagenes/tema8/resultado.png "Resultado")
