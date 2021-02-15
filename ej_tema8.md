@@ -41,3 +41,40 @@ Por último, se puede ver de que el pod se está ejecutando y que se pude comenz
 ![Instalación de PrestaShop](./imagenes/tema8/prestashop.png "Instalación de PrestaShop")
 
 ## Ejercicio 2. Usar un miniframework REST para crear un servicio web y introducirlo en un contenedor, y componerlo con un cliente REST que sea el que finalmente se ejecuta y sirve como “frontend”.
+
+Para este ejercicio se va a crear un framework REST con *Django*, mientras que en la parte del servidor se utilizará el proyecto realizado para esta asignatura [*SharingNotes*](https://github.com/mjls130598/SharingNotes). En este ejercicio únicamente se visualizarán los apuntes que tiene guardados.
+
+Una vez construida la aplicación en *Django*, se escribe el Dockerfile que va a ejecutar *Docker Compose* que es el siguiente:
+
+```
+FROM python:3
+ENV PYTHONUNBUFFERED=1
+WORKDIR /code
+COPY requirements.txt /code/
+RUN pip install -r requirements.txt 0.0.0.0:8000
+COPY . /code/
+
+CMD python manage.py runserver
+```
+
+El [*Dockerfile*](https://github.com/mjls130598/SharingNotes/blob/master/Dockerfile) de *SharingNotes* es el mismo, menos que el comando *CMD* en vez de ejecutar `sbt test` realiza `sbt run`.
+
+A continuación, la composición de estos dos servicios se realiza a través del siguiente *Docker Compose*:
+
+```
+version: '3'
+services:
+   server:
+      container_name: server
+      restart: always
+      build: proyecto/.
+      ports:
+      - "9000:9000"
+
+   client:
+      container_name: client
+      build: django/.
+      stdin_open: true
+      ports:
+      - "8000:8000"
+```
